@@ -1,33 +1,56 @@
-*{
-box-sizing: border-box;
-
-}
-
-header{
-background-color: rgb(131, 147, 169);
-padding: 20px;
-
-
-}
-.logo{
-
-    height: 100px;
-    width: 200px;
-}
-
-.navbar{
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+  }
+  
+  header {
+    background-color: #1c1c1c;
+    padding: 20px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  }
+  
+  .navbar {
     display: flex;
-    justify-content:flex-start;
-}
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    height: 110px;
+    width: auto;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
 
-.navbar ul{
-
-list-style: none;
-
-}
-
-body{
-
-    background-image:url(../img/WhatsApp\ Image\ 2025-03-28\ at\ 12.38.09\ PM.jpeg)
-}
+  }
+  
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2rem;
+  }
+  
+  .nav-links li a:hover {
+    color: #f5c518;
+  }
+  
+  .header-container{
+    max-width: 1400px;
+    margin: 30px;
+    padding: 20px;
+  }
+    body{
+    
+        background-image:url(../img/WhatsApp\ Image\ 2025-03-28\ at\ 12.38.09\ PM.jpeg)
+    }
