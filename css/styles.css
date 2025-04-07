@@ -1,5 +1,33 @@
 *{
 box-sizing: border-box;
 
+}
 
+header{
+background-color: rgb(131, 147, 169);
+padding: 20px;
+
+
+}
+.logo{
+
+    height: 100px;
+    width: 200px;
+}
+
+.navbar{
+
+    display: flex;
+    justify-content:flex-start;
+}
+
+.navbar ul{
+
+list-style: none;
+
+}
+
+body{
+
+    background-image:url(../img/WhatsApp\ Image\ 2025-03-28\ at\ 12.38.09\ PM.jpeg)
 }
