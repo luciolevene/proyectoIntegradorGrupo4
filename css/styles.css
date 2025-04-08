@@ -1,56 +1,107 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    background-color: #000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
-  }
-  
-  header {
-    background-color: #1c1c1c;
-    padding: 20px 40px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .logo {
-    height: 110px;
-    width: auto;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  }
-  
-  .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 2rem;
-  }
-  
-  .nav-links li a:hover {
-    color: #f5c518;
-  }
-  
-  .header-container{
-    max-width: 1400px;
-    margin: 30px;
-    padding: 20px;
-  }
-    body{
-    
-        background-image:url(../img/WhatsApp\ Image\ 2025-03-28\ at\ 12.38.09\ PM.jpeg)
-    }
+body {
+  background-color: #000;
+  background-image: url('../img/WhatsApp Image 2025-03-28 at 12.38.09 PM.jpeg'); /* tu textura de fondo */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+header {
+  background-color: #1c1c1c;
+  padding: 20px 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 110px;
+  width: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2rem;
+  transition: color 0.3s ease;
+}
+
+
+.hero {
+  background: url('') no-repeat center center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.buttons .play,
+.buttons .info {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.play {
+  background-color: #e50914;
+  color: white;
+}
+
+.info {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 30px;
+  padding: 20px;
+}
+
+.section {
+  padding: 2rem;
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+}
+
+.peliculas {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.peliculas img {
+  width: 150px;
+  height: 225px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
