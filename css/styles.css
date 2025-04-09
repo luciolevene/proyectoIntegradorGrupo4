@@ -6,15 +6,14 @@
 
 body {
   background-color: #000;
-  background-image: url('../img/WhatsApp Image 2025-03-28 at 12.38.09 PM.jpeg'); /* tu textura de fondo */
+  background-image: url('../img/WhatsApp Image 2025-03-28 at 12.38.09 PM.jpeg');
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
 }
 
 header {
   background-color: #1c1c1c;
-  padding: 20px 40px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 1.5vh 3vw;
 }
 
 .navbar {
@@ -25,7 +24,7 @@ header {
 }
 
 .logo {
-  height: 110px;
+  height: 10vh;
   width: auto;
 }
 
@@ -38,32 +37,29 @@ header {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 2rem;
-  transition: color 0.3s ease;
+  margin-left: 1.5vw;
 }
-
 
 .hero {
   background: url('') no-repeat center center/cover;
-  height: 400px;
+  height: 40vh;
   display: flex;
   align-items: center;
-  padding-left: 3rem;
+  padding-left: 3vw;
 }
 
 .hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3vw;
+  margin-bottom: 1vh;
 }
 
 .buttons .play,
 .buttons .info {
-  padding: 10px 20px;
-  margin-right: 10px;
+  padding: 0.8vh 1.6vw;
+  margin-right: 1vw;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5vw;
   font-weight: bold;
-  cursor: pointer;
 }
 
 .play {
@@ -74,34 +70,35 @@ header {
 .info {
   background-color: transparent;
   color: white;
-  border: 1px solid white;
+  border: 0.1vw solid white;
 }
 
 .header-container {
-  max-width: 1400px;
-  margin: 30px;
-  padding: 20px;
+  max-width: 90vw;
+  margin: 2vh auto;
+  padding: 2vh;
 }
 
 .section {
-  padding: 2rem;
+  padding: 2vw;
 }
 
 .section h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 1vh;
+  font-size: 1.8vw;
 }
 
 .peliculas {
   display: flex;
-  gap: 10px;
-  padding-bottom: 1rem;
-  overflow-x: auto;
+  gap: 0.8vw;
+  padding-bottom: 2vh;
+  flex-wrap: wrap;   
+  justify-content: start;
 }
 
 .peliculas img {
-  width: 150px;
-  height: 225px;
-  border-radius: 10px;
-  object-fit: cover;
+  width: 9vw;
+  height: 13vw;
+  border-radius: 0.7vw;
+ 
 }
-
