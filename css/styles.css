@@ -24,7 +24,7 @@ header {
 }
 
 .logo {
-  height: 10vh;
+  height: 15vh;
   width: auto;
 }
 
@@ -136,3 +136,8 @@ flex-wrap: wrap;
   display: flex;
   justify-content: center;
 }
+
+li.separado a{
+  color: yellow;
+  text-decoration: underline;
+  }
