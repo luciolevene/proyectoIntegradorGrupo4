@@ -79,6 +79,12 @@ header {
   padding: 2vh;
 }
 
+.titulop{
+
+display: flex;
+flex-wrap: wrap;
+
+}
 .section {
   padding: 2vw;
 }
@@ -94,6 +100,7 @@ header {
   padding-bottom: 2vh;
   flex-wrap: wrap;   
   justify-content: start;
+
 }
 
 .peliculas img {
@@ -101,4 +108,14 @@ header {
   height: 13vw;
   border-radius: 0.7vw;
  
+}
+
+.peliculas article {
+  width: 9vw;
+  text-align: center;
+}
+
+.peliculas p {
+  margin-top: 0.5vh;
+  font-size: 0.95vw;
 }
