@@ -43,7 +43,7 @@ header {
 }
 
 .hero {
-  background: url('') no-repeat center center/cover;
+  background: url('') no-repeat center;
   height: 40vh;
   display: flex;
   align-items: center;
@@ -100,7 +100,7 @@ flex-wrap: wrap;
 .peliculas {
   display: flex;
   gap: 5vw;
-  padding-bottom: 2vh;
+  padding: 2vh;
   flex-wrap: wrap;   
   justify-content: start;
   
@@ -143,7 +143,6 @@ flex-wrap: wrap;
 
 li.separado a{
   color: rgb(116, 58, 48);
-  text-decoration: underline;
   }
 
   .genero-botones {
@@ -191,7 +190,7 @@ li.separado a{
     .detalle {
       flex-direction: column;
       align-items: center;
-      padding: 2vh 5vw;
+      padding: 5vw;
     }
   
     .detalle img {
