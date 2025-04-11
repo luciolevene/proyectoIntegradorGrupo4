@@ -192,6 +192,15 @@ li.separado a{
       align-items: center;
       padding: 5vw;
     }
+
+    .peliculas img{
+      width: 75vw;
+      height: 50vh;
+      border-radius: 0.7vw;
+    }
+    .peliculas{
+      flex-direction: column;
+    }
   
     .detalle img {
       width: 60vw;
