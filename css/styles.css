@@ -180,6 +180,11 @@ li.separado a{
     max-width: 600px;
     margin-left: 5%;
   }
+
+  .form-container{
+    display: flex;
+    justify-content: center;
+  }
   
 
   @media (max-width: 468px) {
