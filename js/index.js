@@ -1,6 +1,6 @@
 let apiKey = "a2ebd75bfce21a517850620a286006ec";
 let movieId = 550;
-let url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-ES&page=1`;
+let url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
 
 fetch(url)
   .then(function(response) {
