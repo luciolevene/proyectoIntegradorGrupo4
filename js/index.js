@@ -1,32 +1,111 @@
-let apiKey = "a2ebd75bfce21a517850620a286006ec";
-let url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
-let peliHTML= ''
+window.addEventListener("load", function () {
+  let apiKey = "a2ebd75bfce21a517850620a286006ec";
+  let urlBase = "https://api.themoviedb.org/3";
+  let imagenBase = "https://image.tmdb.org/t/p/w500";
+
+  let contenedorPeliculas = document.querySelectorAll(".peliculas")[0];
+  let urlPeliculas = `${urlBase}/movie/popular?api_key=${apiKey}`;
+
+  fetch(urlPeliculas)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let peliculas = data.results.slice(0, 5);
+      let contenido = "";
+      for (let i = 0; i < peliculas.length; i++) {
+        contenido += `
+          <article>
+            <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
+              <img src="${imagenBase}${peliculas[i].poster_path}" alt="${peliculas[i].title}">
+            </a>
+            <p>${peliculas[i].title} (${peliculas[i].release_date.slice(0, 4)})</p>
+          </article>
+        `;
+      }
+      contenedorPeliculas.innerHTML = contenido;
+    })
+    .catch(function (error) {
+      console.log("Error en películas populares:", error);
+    });
+
+  let contenedorSeries = document.querySelectorAll(".peliculas")[1];
+  let urlSeriesCrimen = `${urlBase}/discover/tv?api_key=${apiKey}`;
+
+  fetch(urlSeriesCrimen)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let series = data.results.slice(0, 5);
+      let contenido = "";
+      for (let i = 0; i < series.length; i++) {
+        contenido += `
+          <article>
+            <a href="detalles-Series.html?id=${series[i].id}">
+              <img src="${imagenBase}${series[i].poster_path}" alt="${series[i].name}">
+            </a>
+            <p>${series[i].name} (${series[i].first_air_date.slice(0, 4)})</p>
+          </article>
+        `;
+      }
+      contenedorSeries.innerHTML = contenido;
+    })
+    .catch(function (error) {
+      console.log("Error en series de crimen:", error);
+    });
 
 
-fetch(url)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    let movies = data.results;
-    let peliHTML = "";
+  let contenedorTop = document.querySelectorAll(".peliculas")[2];
+  let urlPeliculasTop = `${urlBase}/movie/top_rated?api_key=${apiKey}`;
 
-    for (let i = 0; i < 5; i++) {
-      peliHTML += `
-        <a class="linkDetail" href="./detalles-Pelicula.html?id=${movies[i].id}">
-          <div class="peliculitas">
-            <img class="imagenPeliculas" src="https://image.tmdb.org/t/p/w500${movies[i].poster_path}" alt="${movies[i].title}">
-            <div class="textoPeliculas">
-              <span class="negrita">${movies[i].title}</span> (${movies[i].release_date.slice(0,4)})
-            </div>
-          </div>
-        </a>
-      `;
-    }
+  fetch(urlPeliculasTop)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (dataPeliculas) {
+      let peliculas = dataPeliculas.results.slice(0, 3);
+      let contenido = "";
 
-    let peli = document.querySelector(".peliculas");
-    peli.innerHTML = peliHTML;
-  })
-  .catch(function(error) {
-    console.error("Ocurrió un error:", error.message);
-  });
+      for (let i = 0; i < peliculas.length; i++) {
+        contenido += `
+          <article>
+            <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
+              <img src="${imagenBase}${peliculas[i].poster_path}" alt="${peliculas[i].title}">
+            </a>
+            <p>${peliculas[i].title} (${peliculas[i].release_date.slice(0, 4)})</p>
+          </article>
+        `;
+      }
+
+    
+      let urlSeriesTop = `${urlBase}/tv/top_rated?api_key=${apiKey}`;
+
+      fetch(urlSeriesTop)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (dataSeries) {
+          let series = dataSeries.results.slice(0, 2);
+
+          for (let i = 0; i < series.length; i++) {
+            contenido += `
+              <article>
+                <a href="detalles-Series.html?id=${series[i].id}">
+                  <img src="${imagenBase}${series[i].poster_path}" alt="${series[i].name}">
+                </a>
+                <p>${series[i].name} (${series[i].first_air_date.slice(0, 4)})</p>
+              </article>
+            `;
+          }
+
+          contenedorTop.innerHTML = contenido;
+        })
+        .catch(function (error) {
+          console.log("Error en series top:", error);
+        });
+    })
+    .catch(function (error) {
+      console.log("Error en películas top:", error);
+    });
+});
