@@ -18,8 +18,21 @@
       <li class="separado"><a href="register.html">Registrarse</a></li>
     </ul>
     <form class="buscador" action="resultados.html" method="GET">
-      <input type="text" name="q" placeholder="Buscar películas..."/>
-      <button type="submit">🔍</button> 
+        <input type="text" name="q" placeholder="Buscar películas o series..." required>
+      
+        <div class="tipo-busqueda">
+          <label>
+            <input type="radio" name="tipo" value="pelicula" checked>
+            Películas
+          </label>
+          <label>
+            <input type="radio" name="tipo" value="serie">
+            Series
+          </label>
+        </div>
+      
+        <button type="submit">🔍</button>
+      </form>
       
   </nav>
 </header>

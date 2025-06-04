@@ -55,6 +55,14 @@ header {
   margin-bottom: 1vh;
 }
 
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
 .buttons .play,
 .buttons .info {
   padding: 0.8vh 1.6vw;
