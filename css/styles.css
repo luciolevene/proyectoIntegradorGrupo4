@@ -123,6 +123,23 @@ flex-wrap: wrap;
  
 }
 
+.detalle-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.detalle-imagen img {
+  width: 200px;
+}
+
+.detalle-info {
+  margin-left: 20px; 
+  border: 2px solid white;
+  padding: 20px;
+  border-radius: 10px;
+}
+  
+
 .peliculas article {
   width: 9vw;
   text-align: center;
