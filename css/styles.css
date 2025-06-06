@@ -170,7 +170,15 @@ li.separado a{
   color: rgb(116, 58, 48);
   }
 
-  .genero-botones {
+  .genero-botonesS {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vw;
+    margin-top: 4vh;
+  }
+
+  .genero-botonesP {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -179,6 +187,18 @@ li.separado a{
   }
   
   .boton-genero {
+    background-color: #802424;
+    color: rgb(230, 199, 199);
+    text-decoration: none;
+    padding: 2vh 4vw;
+    font-size: 1.2vw;
+    border-radius: 0.7vw;
+    text-align: center;
+    width: 15vw;
+  }
+
+
+  .boton-generoS {
     background-color: #802424;
     color: rgb(230, 199, 199);
     text-decoration: none;

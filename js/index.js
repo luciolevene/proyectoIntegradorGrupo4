@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+
   let apiKey = "a2ebd75bfce21a517850620a286006ec";
   let urlBase = "https://api.themoviedb.org/3";
   let imagenBase = "https://image.tmdb.org/t/p/w500";
@@ -11,9 +11,9 @@ window.addEventListener("load", function () {
       return response.json();
     })
     .then(function (data) {
-      let peliculas = data.results.slice(0, 5);
+      let peliculas = data.results;
       let contenido = "";
-      for (let i = 0; i < peliculas.length; i++) {
+      for (let i = 0; i < 5; i++) {
         contenido += `
           <article>
             <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
@@ -37,9 +37,9 @@ window.addEventListener("load", function () {
       return response.json();
     })
     .then(function (data) {
-      let series = data.results.slice(0, 5);
+      let series = data.results;
       let contenido = "";
-      for (let i = 0; i < series.length; i++) {
+      for (let i = 0; i < 5; i++) {
         contenido += `
           <article>
             <a href="detalles-Series.html?id=${series[i].id}">
@@ -64,10 +64,10 @@ window.addEventListener("load", function () {
       return response.json();
     })
     .then(function (dataPeliculas) {
-      let peliculas = dataPeliculas.results.slice(0, 3);
+      let peliculas = dataPeliculas.results;
       let contenido = "";
 
-      for (let i = 0; i < peliculas.length; i++) {
+      for (let i = 0; i < 3; i++) {
         contenido += `
           <article>
             <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
@@ -86,9 +86,9 @@ window.addEventListener("load", function () {
           return response.json();
         })
         .then(function (dataSeries) {
-          let series = dataSeries.results.slice(0, 2);
+          let series = dataSeries.results;
 
-          for (let i = 0; i < series.length; i++) {
+          for (let i = 0; i < 2; i++) {
             contenido += `
               <article>
                 <a href="detalles-Series.html?id=${series[i].id}">
@@ -108,4 +108,4 @@ window.addEventListener("load", function () {
     .catch(function (error) {
       console.log("Error en películas top:", error);
     });
-});
+

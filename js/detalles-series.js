@@ -17,9 +17,10 @@ window.addEventListener("load", function () {
   
         for (let i = 0; i < data.genres.length; i++) {
           generosHTML += data.genres[i].name
-        }
+            }
+         
   
-        contenedor.innerHTML = `
+         contenedor.innerHTML = `
           <div class="detalle-container">
             <div class="detalle-imagen">
               <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
