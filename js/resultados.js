@@ -3,11 +3,9 @@ let qsto = new URLSearchParams(qs);
 let resultadoID = qsto.get("query");
 let apiKey = "a2ebd75bfce21a517850620a286006ec";
 let imagenBase = "https://image.tmdb.org/t/p/w500";
-let contenedorPeliculas = document.querySelectorAll(".peliculasBuscadas");
+let tipo = qsto.get("tipo");
 
-function carga(){
-    document.querySelector(".gif").style.display="none";
-}
+
 fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=${apiKey}&query=${resultadoID}`)
 .then(function(response){
     return response.json();
@@ -15,15 +13,23 @@ fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=${apiKey}&query=${res
 .then(function(data){
     console.log(data.results);
     let peliculas = data.results;
+    let contenedorPeliculas = document.querySelector(".peliculas");
       let contenido = "";
-      if(data.results.length <0){
+      if(data.results.length > 0){
         for (let i = 0; i < 5; i++) {
+          if (tipo === "movie") {
+        titulo       = peliculas[i].title;            
+        fechaInicial = peliculas[i].release_date;     
+        } else {
+        titulo       = peliculas[i].name;             
+        fechaInicial = peliculas[i].first_air_date;  
+        }
         contenido += `
           <article>
             <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
-              <img src="${imagenBase}${peliculas[i].poster_path}" alt="${peliculas[i].title}">
+              <img src="${imagenBase}${peliculas[i].poster_path}" alt="${peliculas[i].titulo}">
             </a>
-            <p>${peliculas[i].title} (${peliculas[i].release_date.slice(0, 4)})</p>
+            <p>${titulo} (${fechaInicial.slice(0, 4)})</p>
           </article>
         `;
       }
@@ -32,5 +38,5 @@ fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=${apiKey}&query=${res
       contenedorPeliculas.innerHTML = contenido;
     })
     .catch(function (error) {
-      console.log("Error en películas populares:", error);
-    });
+      console.log("Error en películas populares:", error);
+  });
