@@ -46,3 +46,8 @@ containerS.innerHTML = GenerosS
 .catch(function (error) {
 console.error('Error al obtener los detalles de la película:', error);
 });
+
+let DetallesGeneros= ''
+let Dcontainer= document.querySelector('')
+
+fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=es-ES&with_genres=28`)
