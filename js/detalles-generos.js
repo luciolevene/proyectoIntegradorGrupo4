@@ -18,7 +18,7 @@ GenerosP += `
 }
 container.innerHTML = GenerosP
 })
-.catch(error => {
+.catch(function (error) {
 console.error('Error al obtener los detalles de la película:', error);
 });
 
@@ -43,6 +43,6 @@ GenerosS += `
 }
 containerS.innerHTML = GenerosS
 })
-.catch(error => {
+.catch(function (error) {
 console.error('Error al obtener los detalles de la película:', error);
 });
