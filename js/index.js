@@ -19,7 +19,7 @@
             <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
               <img src="${imagenBase}${peliculas[i].poster_path}" alt="${peliculas[i].title}">
             </a>
-            <p>${peliculas[i].title} (${peliculas[i].release_date.slice(0, 4)})</p>
+            <p>${peliculas[i].title} (${peliculas[i].release_date})</p>
           </article>
         `;
       }
@@ -45,7 +45,7 @@
             <a href="detalles-Series.html?id=${series[i].id}">
               <img src="${imagenBase}${series[i].poster_path}" alt="${series[i].name}">
             </a>
-            <p>${series[i].name} (${series[i].first_air_date.slice(0, 4)})</p>
+            <p>${series[i].name} (${series[i].first_air_date})</p>
           </article>
         `;
       }
@@ -73,7 +73,7 @@
             <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
               <img src="${imagenBase}${peliculas[i].poster_path}" alt="${peliculas[i].title}">
             </a>
-            <p>${peliculas[i].title} (${peliculas[i].release_date.slice(0, 4)})</p>
+            <p>${peliculas[i].title} (${peliculas[i].release_date})</p>
           </article>
         `;
       }
@@ -94,7 +94,7 @@
                 <a href="detalles-Series.html?id=${series[i].id}">
                   <img src="${imagenBase}${series[i].poster_path}" alt="${series[i].name}">
                 </a>
-                <p>${series[i].name} (${series[i].first_air_date.slice(0, 4)})</p>
+                <p>${series[i].name} (${series[i].first_air_date})</p>
               </article>
             `;
           }

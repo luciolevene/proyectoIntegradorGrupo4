@@ -4,8 +4,7 @@ let resultadoID = qsto.get("query");
 let apiKey = "a2ebd75bfce21a517850620a286006ec";
 let imagenBase = "https://image.tmdb.org/t/p/w500";
 let contenedorPeliculas = document.querySelectorAll(".peliculasBuscadas");
-let tipo = qsto.get({tipo}); 
-window.onload = carga;
+
 function carga(){
     document.querySelector(".gif").style.display="none";
 }
@@ -15,10 +14,10 @@ fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=${apiKey}&query=${res
 })
 .then(function(data){
     console.log(data.results);
-    let peliculas = data.results.slice(0, 5);
+    let peliculas = data.results;
       let contenido = "";
       if(data.results.length <0){
-        for (let i = 0; i < peliculas.length; i++) {
+        for (let i = 0; i < 5; i++) {
         contenido += `
           <article>
             <a href="detalles-Pelicula.html?id=${peliculas[i].id}">

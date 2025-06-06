@@ -1,4 +1,3 @@
-window.addEventListener("load", function () {
     let queryString = location.search;
     let datos = new URLSearchParams(queryString);
     let id = datos.get("id");
@@ -39,5 +38,5 @@ window.addEventListener("load", function () {
       .catch(function (error) {
         console.log("Error al cargar detalles de la serie:", error);
       });
-  });
+  
   
