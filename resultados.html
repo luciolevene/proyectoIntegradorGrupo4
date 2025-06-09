@@ -12,22 +12,26 @@
       <img class="logo" src="./img/cineplay_logo.png" alt="CinePlay Logo"> 
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="generosp.html">Películas</a></li>
-        <li><a href="generosp.html">Series</a></li>
+        <li><a href="generosp.html">Generos Películas</a></li>
+        <li><a href="geneross.html">Generos Series</a></li>
         <li class="separado"><a href="login.html">Login</a></li>
         <li class="separado"><a href="register.html">Registrarse</a></li>
       </ul>
+  
       <form class="buscador" action="resultados.html" method="GET">
-        <input type="text" name="q" placeholder="Buscar películas..."/>
-        <button type="submit">🔍</button> 
+        <input type="text" name="q" placeholder="Buscar películas o serie"/>
+        <label><input type="radio" name="tipo" value="pelicula" id="radioPeliculas"> Películas</label>
+        <label><input type="radio" name="tipo" value="serie" id="radioSeries"> Series</label>
+        <button type="submit">🔍</button>
       </form>
+      
     </nav>
   </header>
 
   <main class="section">
     <h2>Resultados de busqueda:</h2>
     <div class="peliculas">
-      
+      <section class="resultados"></section>
 <div class="parent">
   <footer class="footer">
     <p>Creado por: Mirko Speier, Lucio Levene y Facundo Saroka</p>

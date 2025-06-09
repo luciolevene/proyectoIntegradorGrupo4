@@ -1,42 +1,45 @@
-let qs = location.search;
-let qsto = new URLSearchParams(qs);
-let resultadoID = qsto.get("query");
 let apiKey = "a2ebd75bfce21a517850620a286006ec";
 let imagenBase = "https://image.tmdb.org/t/p/w500";
-let tipo = qsto.get("tipo");
+let urlBase = "https://api.themoviedb.org/3";
 
+let queryString = location.search;
+let datos = new URLSearchParams(queryString);
 
-fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=${apiKey}&query=${resultadoID}`)
-.then(function(response){
-    return response.json();
-})
-.then(function(data){
-    console.log(data.results);
-    let peliculas = data.results;
-    let contenedorPeliculas = document.querySelector(".peliculas");
-      let contenido = "";
-      if(data.results.length > 0){
-        for (let i = 0; i < 5; i++) {
-          if (tipo === "movie") {
-        titulo       = peliculas[i].title;            
-        fechaInicial = peliculas[i].release_date;     
-        } else {
-        titulo       = peliculas[i].name;             
-        fechaInicial = peliculas[i].first_air_date;  
-        }
-        contenido += `
-          <article>
-            <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
-              <img src="${imagenBase}${peliculas[i].poster_path}" alt="${peliculas[i].titulo}">
-            </a>
-            <p>${titulo} (${fechaInicial.slice(0, 4)})</p>
-          </article>
-        `;
-      }
-      }else{contenido = "<p> No hay resultados disponibles</p>"}
-      
-      contenedorPeliculas.innerHTML = contenido;
+let tipo = datos.get("tipo"); 
+let resultado = document.querySelector(".peliculas");
+
+if (tipo === "pelicula") {
+  fetch(`${urlBase}/movie/popular?api_key=${apiKey}&language=es`)
+    .then(function (response) {
+      return response.json();
     })
-    .catch(function (error) {
-      console.log("Error en películas populares:", error);
-  });
+    .then(function (data) {
+      let contenido = "";
+      for (let i = 0; i < 10; i++) {
+        contenido += '<article>' +
+          '<a href="detalles-Pelicula.html?id=' + data.results[i].id + '">' +
+          '<img src="' + imagenBase + data.results[i].poster_path + '" alt="' + data.results[i].title + '">' +
+          '</a>' +
+          '<p>' + data.results[i].title + ' (' + data.results[i].release_date + ')</p>' +
+          '</article>';
+      }
+      resultado.innerHTML = contenido;
+    });
+} else if (tipo === "serie") {
+  fetch(`${urlBase}/tv/popular?api_key=${apiKey}&language=es`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let contenido = "";
+      for (let i = 0; i < 10; i++) {
+        contenido += '<article>' +
+          '<a href="detalles-Series.html?id=' + data.results[i].id + '">' +
+          '<img src="' + imagenBase + data.results[i].poster_path + '" alt="' + data.results[i].name + '">' +
+          '</a>' +
+          '<p>' + data.results[i].name + ' (' + data.results[i].first_air_date + ')</p>' +
+          '</article>';
+      }
+      resultado.innerHTML = contenido;
+    });
+}
