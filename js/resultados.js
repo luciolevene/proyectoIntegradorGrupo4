@@ -7,7 +7,6 @@ let imagenBase = "https://image.tmdb.org/t/p/w500";
 let urlBase = "https://api.themoviedb.org/3";
 let contenedor = document.querySelector(".peliculas");
 
-// Validamos si los datos existen antes de hacer el fetch
 if (resultadoID && tipo) {
   fetch(`${urlBase}/search/${tipo}?api_key=${apiKey}&language=es&query=${resultadoID}`)
     .then(function (response) {
