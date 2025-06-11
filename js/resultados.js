@@ -1,51 +1,44 @@
+let qs = location.search;
+let qsto = new URLSearchParams(qs);
+let resultadoID = qsto.get("q");
+let tipo = qsto.get("tipo");
 let apiKey = "a2ebd75bfce21a517850620a286006ec";
 let imagenBase = "https://image.tmdb.org/t/p/w500";
 let urlBase = "https://api.themoviedb.org/3";
+let contenedor = document.querySelector(".peliculas");
 
-let queryString = location.search;
-let datos = new URLSearchParams(queryString);
-
-let tipo = datos.get("tipo"); 
-let resultado = document.querySelector(".peliculas");
-
-
-if (tipo === "pelicula") {
-  fetch(`${urlBase}/movie/popular?api_key=${apiKey}&language=es`)
+// Validamos si los datos existen antes de hacer el fetch
+if (resultadoID && tipo) {
+  fetch(`${urlBase}/search/${tipo}?api_key=${apiKey}&language=es&query=${resultadoID}`)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       let contenido = "";
-      for (let i = 0; i < data.results.length; i++) {
-        contenido += `
-             <article>
-                <a href="detalles-Pelicula.html?id=${data.results[i].id}">
-             <img src="${imagenBase}${data.results[i].poster_path}" alt="${data.results[i].title}">
-             </a>
-                <p>${data.results[i].title} (${data.results[i].release_date})</p>
-         </article>`
-      };
-      resultado.innerHTML = contenido;
-    });
 
+      if (data.results && data.results.length > 0) {
+        for (let i = 0; i < data.results.length; i++) {
+          let titulo = tipo === "movie" ? data.results[i].title : data.results[i].name;
+          let fecha = tipo === "movie" ? data.results[i].release_date : data.results[i].first_air_date;
+          let detalle = tipo === "movie" ? "detalles-Pelicula.html" : "detalles-Series.html";
 
-} else if (tipo === "serie") {
-  fetch(`${urlBase}/tv/popular?api_key=${apiKey}&language=es`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      let contenido = ""; 
-      for (let i = 0; i < data.results.length; i++) {
-        contenido += `
-          <article>
-          <a href="detalles-Series.html?id=${data.results[i].id}">
-           <img src="${imagenBase}${data.results[i].poster_path}" alt="${data.results[i].name}">
-       </a>
-          <p>${data.results[i].name} (${data.results[i].first_air_date})</p>
-      </article>`;
+          contenido +=
+            '<article>' +
+            '<a href="' + detalle + '?id=' + data.results[i].id + '">' +
+            '<img src="' + imagenBase + data.results[i].poster_path + '" alt="' + titulo + '">' +
+            '</a>' +
+            '<p>' + titulo + ' (' + fecha + ')</p>' +
+            '</article>';
+        }
+      } else {
+        contenido = "<p>No hay resultados disponibles.</p>";
       }
-      resultado.innerHTML = contenido;
+
+      contenedor.innerHTML = contenido;
+    })
+    .catch(function (error) {
+      console.log("Error en búsqueda:", error);
     });
-    
+} else {
+  document.querySelector(".peliculas").innerHTML = "<p>Faltan datos para la búsqueda.</p>";
 }
