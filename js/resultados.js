@@ -66,5 +66,6 @@ if (seleccion == "movie") {
       console.error("Ocurrió un error:", error.message);
     });
 } else {
+  spinner.style.display = "none";
   info.innerHTML = "<p>No se especificó correctamente el tipo de búsqueda.</p>";
 }
