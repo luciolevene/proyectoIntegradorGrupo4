@@ -16,8 +16,6 @@ fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=es
 
     for (let i = 0; i < 5; i++) {
       let pelicula = peliculas[i];
-
-      if (pelicula && pelicula.title && pelicula.poster_path) {
         DetallesGeneros += `
           <article>
             <a href="detalles-Pelicula.html?id=${pelicula.id}">
@@ -26,7 +24,7 @@ fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=es
             <p>${pelicula.title} (${pelicula.release_date})</p>
           </article>
         `;
-      }
+      
     }
 
     Dcontainer.innerHTML = DetallesGeneros;
