@@ -15,7 +15,7 @@
         let generosHTML = "";
   
         for (let i = 0; i < data.genres.length; i++) {
-          generosHTML += data.genres[i].name
+          generosHTML += data.genres[i].name + " "
             }
          
   

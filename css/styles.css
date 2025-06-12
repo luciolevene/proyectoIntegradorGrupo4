@@ -284,5 +284,19 @@ li.separado a{
     .nav-links li {
       margin: 0.5vh;
     }
+
+    .genero-botonesP{
+      flex-direction: column;
+      align-items: center;
+
+
+    }
+
+    .genero-botonesS{
+      flex-direction: column;
+      align-items: center;
+
+
+    }
   }
   

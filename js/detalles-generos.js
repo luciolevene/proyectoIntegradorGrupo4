@@ -15,13 +15,12 @@ fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=es
     let peliculas = data.results;
 
     for (let i = 0; i < 5; i++) {
-      let pelicula = peliculas[i];
         DetallesGeneros += `
           <article>
-            <a href="detalles-Pelicula.html?id=${pelicula.id}">
-              <img src="${imagenBase}${pelicula.poster_path}" alt="${pelicula.title}">
+            <a href="detalles-Pelicula.html?id=${peliculas[i].id}">
+              <img src="${imagenBase}${peliculas[i].poster_path}" alt="${peliculas[i].title}">
             </a>
-            <p>${pelicula.title} (${pelicula.release_date})</p>
+            <p>${peliculas[i].title} (${peliculas[i].release_date})</p>
           </article>
         `;
       
@@ -43,8 +42,6 @@ fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=es-ES
 
     for (let i = 0; i < 5; i++) {
       let serie = series[i];
-
-      if (serie && serie.name && serie.poster_path) {
         DetallesGeneros += `
           <article>
             <a href="detalles-Series.html?id=${serie.id}">
@@ -53,7 +50,7 @@ fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=es-ES
             <p>${serie.name} (${serie.first_air_date})</p>
           </article>
         `;
-      }
+      
     }
 
     Dcontainer.innerHTML = DetallesGeneros;

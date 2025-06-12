@@ -15,7 +15,7 @@ fetch(`https://api.themoviedb.org/3/genre/tv/list?api_key=${apiKey}`)
 GenerosS += `
             <div class="genero-botonesS"   >
                 <a class="boton-generoS" href="./detalles-generos.html?id=${data.genres[i].id}">
-                    <h3>${data.genres[i].name}</h3>
+                    <h3>${data.genres[i].name }</h3>
                 </a>
             </div>
 `
